@@ -21,7 +21,7 @@ This document provides guidelines and best practices for developers working on t
    source env/bin/activate  # On Windows: env\Scripts\activate
    
    # Using conda
-   conda create -n sign_language python=3.8
+   conda create -n sign_language python=3.10
    conda activate sign_language
    ```
 

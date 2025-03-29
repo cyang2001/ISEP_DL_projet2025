@@ -10,27 +10,20 @@ This document describes the overall architecture, key components, and interactio
 
 The system is designed with modularity and extensibility in mind, following a layered architecture pattern:
 
+
+```mermaid
+graph TD
+    A[Interface: Training Scripts]
+    B[Business Logic: Models & Pipelines]
+    C[Data Handling: Datasets & Augmentation]
+    D[Utilities: Logging, Metrics, Viz]
+
+    A --> B
+    B --> C
+    C --> D
 ```
-+------------------------------------------+
-|                  Interface               |
-|  (Scripts for training, evaluation, etc.)|
-+------------------------------------------+
-                    |
-+------------------------------------------+
-|              Business Logic              |
-|    (Trainers, Models, Data Pipeline)     |
-+------------------------------------------+
-                    |
-+------------------------------------------+
-|               Data Handling              |
-|  (Dataset classes, Preprocessing, Augm.) |
-+------------------------------------------+
-                    |
-+------------------------------------------+
-|                  Utilities               |
-|   (Logging, Metrics, Visualization)      |
-+------------------------------------------+
-```
+
+
 
 ## Key Components
 
