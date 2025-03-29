@@ -1,5 +1,5 @@
 # Python相关
-__pycache__/
+**/__pycache__/
 *.py[cod]
 *$py.class
 *.so
@@ -76,3 +76,6 @@ Thumbs.db
 
 # Docker相关
 .dockerignore 
+
+.conda/
+.venv/

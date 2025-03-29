@@ -1,8 +1,14 @@
 {
     "name": "Sign Language Recognition",
-    "image": "sign_language_recognition_image",
-    "context": "..",
-    "runServices": [],
+    "image": "sign_language_recognition",
+    "runArgs": [
+        "--gpus",
+        "all"
+    ],
+    "workspaceFolder": "/workspace",
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+      ],
     "postCreateCommand": "pip install -r requirements.txt",
     "remoteUser": "root"
 }
