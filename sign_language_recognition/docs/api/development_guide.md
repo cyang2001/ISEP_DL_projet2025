@@ -196,11 +196,20 @@ def process_video(video_path):
     logger.debug("Extracted frames with shape: %s", frames.shape)
 ```
 
+If you create new class, you must add `logger` as a paremeter:
+
+```python
+from src.utils import get_logger
+from omegaconf import DictConfig
+class MyClass:
+   def __init__(cfg: DictConfig, logger=None)
+```
+
 ## Configuration Management
 
 - Store all configurable parameters in YAML files under `configs/`
 - Access configuration using the provided utilities
-- Don't hardcode parameters that should be configurable
+- **Don't hardcode parameters that should be configurable**
 
 ## Experiment Tracking
 
