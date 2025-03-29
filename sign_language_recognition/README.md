@@ -24,6 +24,10 @@ This project aims to develop a deep learning-based video sign language recogniti
 ### Using Docker (Recommended)
 
 ```bash
+# Clone github repository first
+git clone https://github.com/cyang2001/ISEP_DL_projet2025.git
+
+cd sign_language_recognition
 # Build Docker image
 docker build -t sign_language_recognition .
 
@@ -35,7 +39,7 @@ docker run -it --gpus all -v $(pwd):/workspace sign_language_recognition
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/sign_language_recognition.git
+git clone https://github.com/cyang2001/ISEP_DL_projet2025.git
 cd sign_language_recognition
 
 # Install dependencies
