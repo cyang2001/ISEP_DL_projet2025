@@ -14,9 +14,9 @@ This project aims to develop a deep learning-based video sign language recogniti
 
 ## Environment Requirements
 
-- Python 3.8+
-- PyTorch 1.10+
-- CUDA 11.3+ (for GPU training)
+- Python 3.10+
+- PyTorch 2.6.0+
+- CUDA 12.4+ (for GPU training)
 - See `requirements.txt` for complete dependencies
 
 ## Quick Start
@@ -48,7 +48,14 @@ pip install -r requirements.txt
 # Install project
 pip install -e .
 ```
+### For Developper
 
+If you use VSCode, you need to install `Dev Containers` and follow the usage instructions for `Dev Containers`. I have already created a folder `.devcontainer` at the root; you can use it if you want. **However, it won't install `requirements.txt` in the Dev Container.** 
+
+You have to choose **"Create virtual environment"** when you select the Python interpreter. I recommend choosing `conda` and selecting `Python 3.10`. Finally, you only need to install `requirements.txt` manually. Just use:
+```bash
+pip install -r requirements.txt
+```
 ## Usage
 
 ### Data Preprocessing
