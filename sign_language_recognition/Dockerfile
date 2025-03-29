@@ -1,5 +1,4 @@
-FROM pytorch/pytorch:1.12.1-cuda11.3-cudnn8-runtime
-
+FROM pytorch/pytorch:2.6.0-cuda12.4-cudnn9-devel
 WORKDIR /workspace
 
 # install basic tools

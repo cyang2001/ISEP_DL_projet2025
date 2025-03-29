@@ -1,0 +1,8 @@
+{
+    "name": "Sign Language Recognition",
+    "image": "sign_language_recognition_image",
+    "context": "..",
+    "runServices": [],
+    "postCreateCommand": "pip install -r requirements.txt",
+    "remoteUser": "root"
+}
