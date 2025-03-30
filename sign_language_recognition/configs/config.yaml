@@ -36,18 +36,29 @@ model_dispatch:
 data:
   dataset: "wlasl"  # Options: "wlasl", "ms-asl", "custom"
   data_dir: "data"
-  raw_dir: "data/raw/WLASL"  # 更新为包含WLASL文件夹的路径
+  raw_dir: "data/raw/WLASL"  #  Update to include the WLASL folder path
   processed_dir: "data/processed"
-  # WLASL特定配置
-  wlasl_json_path: "data/WLASL_v0.3.json"  # WLASL数据集标注文件路径
-  missing_videos_log: "data/missing_videos.txt"  # 记录缺失视频的文件
+  # WLASL specific settings
+  wlasl_json_path: "data/WLASL_v0.3.json"  # WLASL data set annotation file path
+  missing_videos_log: "data/missing_videos.txt"  # Record missing video files
   train_ratio: 0.7
   val_ratio: 0.15
   test_ratio: 0.15
 
 hydra:
   run:
-    dir: ${system.log_dir}/runs/${now:%Y-%m-%d}/${now:%H-%M-%S}
-  sweep:
-    dir: ${system.log_dir}/multirun/${now:%Y-%m-%d}/${now:%H-%M-%S}
-    subdir: ${hydra.job.num} 
+    dir: .
+  output_subdir: null
+
+  job:
+    name: ${model.name}
+    config:
+      override_dirname:
+        item_sep: _
+        kv_sep: "-"
+        exclude_keys:
+          - experiment
+          - resume
+          - resume_from_checkpoint
+    env_set:
+      EXAMPLE_VAR: "example_value"

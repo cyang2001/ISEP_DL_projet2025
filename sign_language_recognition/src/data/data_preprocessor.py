@@ -29,10 +29,11 @@ class VideoPreprocessor:
             logger (Logger, optional): Logger pour la journalisation.
         """
         self.cfg = cfg
+        self.m_cfg = cfg.model
         self.logger = logger or get_logger(__name__)
         
         # Paramètres de prétraitement vidéo
-        video_cfg = cfg.data_preprocessing.video
+        video_cfg = self.m_cfg.data_preprocessing.video
         self.target_height = video_cfg.target_height
         self.target_width = video_cfg.target_width
         self.target_fps = video_cfg.target_fps
@@ -42,7 +43,7 @@ class VideoPreprocessor:
         self.crop_method = video_cfg.crop_method
         
         # Créer les répertoires nécessaires
-        os.makedirs(cfg.data.processed_dir, exist_ok=True)
+        os.makedirs(self.cfg.data.processed_dir, exist_ok=True)
         
         # Liste pour stocker les fichiers manquants
         self.missing_videos = []

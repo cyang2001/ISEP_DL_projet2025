@@ -1,20 +1,20 @@
 # Test mode configuration
 
-mode:
-  name: "test"
-  description: "Test running mode for unit testing"
-  test_mode: true
-  debug: true
-  verbose: true
-  
-  # Set smaller values for testing
-  selected_model: "data_preprocessor"
-  validate_after_steps: 10
-  save_checkpoint_steps: 50
-  
-  # Test specific settings
-  run_unit_tests: true
-  run_integration_tests: false
-  
-  # WLASL specific settings
-  find_missing: false  # 是否只检测缺失文件 
+
+name: "test"
+description: "Test running mode for unit testing"
+test_mode: true
+debug: true
+verbose: true
+
+# Set smaller values for testing
+selected_model: "data_preprocessor"
+validate_after_steps: 10
+save_checkpoint_steps: 50
+
+# Test specific settings
+run_unit_tests: true
+run_integration_tests: false
+
+# WLASL specific settings
+find_missing: false  # whether to only detect missing files 

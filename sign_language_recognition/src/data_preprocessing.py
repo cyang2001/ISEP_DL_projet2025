@@ -2,6 +2,7 @@
 Module principal pour le prétraitement des données.
 Adapté pour le traitement du dataset WLASL: https://github.com/dxli94/WLASL
 """
+import logging
 import os
 import argparse
 from omegaconf import DictConfig
@@ -10,7 +11,7 @@ from src.utils.logger import get_logger
 from src.data.data_preprocessor import VideoPreprocessor
 
 
-def main(cfg: DictConfig):
+def main(cfg: DictConfig, logger: logging.Logger=None):
     """
     Fonction principale pour prétraiter les données vidéo.
     Supporte le format de données WLASL.
@@ -22,7 +23,6 @@ def main(cfg: DictConfig):
     logger.info("Démarrage du prétraitement des données vidéo...")
     
     preprocessor = VideoPreprocessor(cfg, logger)
-    
     raw_dir = cfg.data.raw_dir
     processed_dir = cfg.data.processed_dir
     
@@ -31,7 +31,7 @@ def main(cfg: DictConfig):
         return
     
     # Vérifier si un fichier JSON WLASL est spécifié
-    wlasl_json_path = cfg.get("data", {}).get("wlasl_json_path", None)
+    wlasl_json_path = cfg.data.wlasl_json_path
     if wlasl_json_path:
         if os.path.exists(wlasl_json_path):
             logger.info(f"Utilisation du fichier d'annotations WLASL: {wlasl_json_path}")
@@ -39,7 +39,7 @@ def main(cfg: DictConfig):
             result = preprocessor.process_dataset(raw_dir, processed_dir, wlasl_json_path)
             
             # Une fois le traitement terminé, vérifier les vidéos manquantes
-            missing_log_path = cfg.get("data", {}).get("missing_videos_log", "data/missing_videos.txt")
+            missing_log_path = cfg.data.missing_videos_log
             
             # Créer une liste des classes (pour le mode WLASL)
             if result:

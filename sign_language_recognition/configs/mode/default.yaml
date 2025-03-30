@@ -1,16 +1,16 @@
 # Default mode configuration
 
-mode:
-  name: "default"
-  description: "Default running mode"
-  test_mode: false
-  debug: false
-  verbose: true
-  
-  # Runtime settings
-  selected_model: "data_preprocessor"  # 选择要运行的模块
-  validate_after_steps: 100
-  save_checkpoint_steps: 500
-  
-  # WLASL specific settings
-  find_missing: false  # 是否只检测缺失文件 
+
+name: "default"
+description: "Default running mode"
+test_mode: false
+debug: false
+verbose: true
+
+# Runtime settings
+selected_model: "data_preprocessor"  # choose the module to run
+validate_after_steps: 100
+save_checkpoint_steps: 500
+
+# WLASL specific settings
+find_missing: false  # whether to only detect missing files 

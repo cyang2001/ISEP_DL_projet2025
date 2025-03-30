@@ -1,6 +1,6 @@
 # Data preprocessing model configuration
 # 适配WLASL数据集: https://github.com/dxli94/WLASL
-
+name: "data_preprocessing"
 data_preprocessing:
   # 视频预处理参数
   video:
