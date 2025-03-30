@@ -1,0 +1,53 @@
+# Main configuration file
+# All paths are relative to the project root
+
+defaults:
+  - mode: default
+  - model: data_preprocessing
+  - wandb: wandb
+  - _self_
+
+# Global settings
+project:
+  name: "sign_language_recognition"
+  version: "0.1.0"
+  description: "Video Sign Language Recognition using Transformer and Pose Estimation"
+  seed: 42
+
+# System settings
+system:
+  log_level: "INFO"
+  log_dir: "logs"
+  save_dir: "saved_models"
+  use_gpu: true
+  num_workers: 4
+
+# Model dispatch mapping
+model_dispatch:
+  # Format: "model_name": "module_path:function_name"
+  data_preprocessor: "src.data_preprocessing:main"
+  transformer_trainer: "src.transformer_training:main"
+  skeleton_extractor: "src.skeleton_extraction:main"
+  model_evaluator: "src.model_evaluation:main"
+  feature_extractor: "src.feature_extraction:main"
+  video_visualizer: "src.video_visualization:main"
+
+# Data settings
+data:
+  dataset: "wlasl"  # Options: "wlasl", "ms-asl", "custom"
+  data_dir: "data"
+  raw_dir: "data/raw/WLASL"  # 更新为包含WLASL文件夹的路径
+  processed_dir: "data/processed"
+  # WLASL特定配置
+  wlasl_json_path: "data/WLASL_v0.3.json"  # WLASL数据集标注文件路径
+  missing_videos_log: "data/missing_videos.txt"  # 记录缺失视频的文件
+  train_ratio: 0.7
+  val_ratio: 0.15
+  test_ratio: 0.15
+
+hydra:
+  run:
+    dir: ${system.log_dir}/runs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  sweep:
+    dir: ${system.log_dir}/multirun/${now:%Y-%m-%d}/${now:%H-%M-%S}
+    subdir: ${hydra.job.num} 

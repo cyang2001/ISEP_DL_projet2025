@@ -1,0 +1,42 @@
+# Data preprocessing model configuration
+# 适配WLASL数据集: https://github.com/dxli94/WLASL
+
+data_preprocessing:
+  # 视频预处理参数
+  video:
+    target_fps: 30
+    target_height: 224
+    target_width: 224
+    max_frames: 150
+    min_frames: 10
+    normalize: true
+    crop_method: "center"  # 可选: "center", "random", "none"
+    
+  # 数据增强参数
+  augmentation:
+    enabled: true
+    flip_probability: 0.3
+    rotation_range: 10
+    brightness_range: [0.8, 1.2]
+    contrast_range: [0.8, 1.2]
+    
+  # 骨架点提取参数
+  skeleton:
+    use_mediapipe: true
+    confidence_threshold: 0.5
+    model_complexity: 1
+    min_detection_confidence: 0.5
+    
+  # WLASL特定参数
+  wlasl:
+    # 选择子集大小 (100, 300, 1000, 2000)
+    subset_size: 2000
+    # 是否只处理已分类的视频
+    only_split_videos: false
+    # 训练集与测试集的划分比例
+    train_ratio: 0.8
+    
+  # 并行处理参数
+  parallel:
+    num_processes: 4
+    batch_size: 16 
