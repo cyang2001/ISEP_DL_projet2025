@@ -27,8 +27,6 @@ cd WLASL/start_kit
 # Download videos (this may take several hours)
 python video_downloader.py
 
-# Extract video samples
-python preprocess.py
 ```
 
 ### 2. Prepare the Dataset for Our System
