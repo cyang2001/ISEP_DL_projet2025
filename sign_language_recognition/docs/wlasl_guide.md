@@ -44,8 +44,6 @@ After downloading the WLASL dataset, you need to:
    # Copy the downloaded videos to our raw directory
    cp -r WLASL/videos/* sign_language_recognition/data/raw/WLASL/
    
-   # Copy the annotation file
-   cp WLASL/start_kit/WLASL_v0.3.json sign_language_recognition/data/
    ```
 
 3. Verify the configuration in `sign_language_recognition/configs/config.yaml`:
